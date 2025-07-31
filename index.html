@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Love</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="min-h-screen">
+    <!-- Background Musik -->
+    <audio id="bgMusic" loop>
+      <source src="banda neira.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Header/Nav -->
+    <header
+      class="bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg"
+    >
+      <div
+        class="container mx-auto px-4 py-6 flex justify-between items-center"
+      >
+        <h1 class="title-font text-3xl md:text-4xl">
+          Happy Birthday <span class="text-yellow-300"></span>
+        </h1>
+        <div class="flex items-center space-x-4">
+          <button
+            id="musicBtn"
+            class="bg-white/20 p-2 rounded-full hover:bg-white/30 transition"
+          >
+            <i id="musicIcon" class="fas fa-volume-up text-xl"></i>
+          </button>
+          <button
+            id="themeBtn"
+            class="bg-white/20 p-2 rounded-full hover:bg-white/30 transition"
+          >
+            <i id="themeIcon" class="fas fa-moon text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 px-4 text-center">
+      <div class="max-w-4xl mx-auto">
+        <div class="floating mb-8">
+          <img
+            src="img/sekar 2.jpg"
+            alt="Pasangan"
+            class="mx-auto rounded-full w-48 h-48 md:w-64 md:h-64 object-cover border-4 border-pink-300 shadow-xl"
+          />
+        </div>
+        <h2 class="title-font text-4xl md:text-5xl text-rose-600 mb-4">
+          Selamat Ulang Tahun
+          <span class="text-pink-700" id="namaSayang">Sayangku!</span>
+        </h2>
+        <p class="text-lg md:text-xl text-gray-600 mb-8">
+          Hari ini adalah hari spesial kamu, dan aku ingin membuatnya lebih
+          berkesan dengan website kecil ini untukmu
+        </p>
+
+        <!-- Countdown -->
+        <div
+          id="countdown"
+          class="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg max-w-md mx-auto mb-8"
+        >
+          <h3 class="title-font text-2xl text-pink-700 mb-4">
+            Menuju Hari Spesialmu
+          </h3>
+          <div class="flex justify-center gap-4">
+            <div class="text-center">
+              <div
+                class="bg-pink-500 text-white rounded-lg p-2 w-16 h-16 flex items-center justify-center text-2xl font-bold"
+                id="days"
+              >
+                0
+              </div>
+              <div class="text-sm mt-1">Hari</div>
+            </div>
+            <div class="text-center">
+              <div
+                class="bg-pink-500 text-white rounded-lg p-2 w-16 h-16 flex items-center justify-center text-2xl font-bold"
+                id="hours"
+              >
+                0
+              </div>
+              <div class="text-sm mt-1">Jam</div>
+            </div>
+            <div class="text-center">
+              <div
+                class="bg-pink-500 text-white rounded-lg p-2 w-16 h-16 flex items-center justify-center text-2xl font-bold"
+                id="minutes"
+              >
+                0
+              </div>
+              <div class="text-sm mt-1">Menit</div>
+            </div>
+            <div class="text-center">
+              <div
+                class="bg-pink-500 text-white rounded-lg p-2 w-16 h-16 flex items-center justify-center text-2xl font-bold"
+                id="seconds"
+              >
+                0
+              </div>
+              <div class="text-sm mt-1">Detik</div>
+            </div>
+          </div>
+
+          <!-- Pesan ulang tahun (muncul jika waktu habis) -->
+          <div
+            id="birthdayMessage"
+            class="hidden text-center text-pink-600 text-3xl font-bold mt-6 animate-bounce"
+          >
+            Selamat Ulang Tahun Sayang! 💖
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <button
+            id="scrollDownBtn"
+            class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-3 rounded-full shadow-lg hover:from-rose-500 hover:to-pink-500 transition-all duration-300 flex items-center mx-auto"
+          >
+            <span>Mulai Eksplorasi</span>
+            <i class="fas fa-chevron-down ml-2"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Special Message Section -->
+    <section
+      id="specialMessage"
+      class="py-16 px-4 bg-gradient-to-b from-pink-50 to-rose-50"
+    >
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="title-font text-3xl md:text-4xl text-rose-600 mb-6">
+          Pesan Spesial Untuk kamu
+        </h2>
+        <div class="relative inline-block">
+          <div
+            id="giftBox"
+            class="gift-box bg-gradient-to-br from-amber-300 to-amber-500 w-24 h-24 rounded-lg shadow-lg flex items-center justify-center text-amber-800 text-5xl mx-auto mb-8"
+          >
+            <i class="fas fa-gift"></i>
+          </div>
+          <div
+            class="absolute top-0 right-0 -mt-2 -mr-2 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold"
+            id="heartCount"
+          >
+            0
+          </div>
+        </div>
+        <p class="text-lg mb-4">Klik kotak hadiah di atas yaa sayanggg</p>
+
+        <div
+          id="messageContent"
+          class="hidden bg-white p-6 rounded-xl shadow-lg mt-6"
+        >
+          <h3 class="title-font text-2xl text-pink-700 mb-4">
+            Untuk <span id="namaSayangMessage">Sayangku</span>,
+          </h3>
+          <div class="text-left space-y-4 text-gray-700 mb-6">
+            <p>
+              Selamat ulang tahun sayanggg untuk orang yang paling istimewa
+              dalam hidupku dan duniaku!
+            </p>
+            <p>
+              Di hari spesial kamu ini, aku ingin mengucapkan terima kasih
+              karena telah menjadi bagian dari hidupku serta perjalanan aku.
+              Setiap momen bersama kamu adalah hadiah terindah yang pernah aku
+              rasakan. Terima kasih juga udaa selalu ada tiap suka duka aku yaa
+              sayanggg, terima kasih atas effort dan materi yang kamu upayakan
+              untuk aku, terima kasih uda hadir di dunia untuk jadi orang baik,
+              baik kepada orang terdekat, tersayang, dan keliling kamu yaa.
+              terima kasih atas rasa sabar kamu yaa selama sama aku dan terima
+              kasih juga udaa menurunkan ego dan ngalah kala aku lakukan
+              kesalahan.
+            </p>
+            <p>
+              Aku berharap tahun ini membawa kebahagiaan, kesehatan, dan semua
+              impian yang menjadi kenyataan. Kamu pantas mendapatkan yang
+              terbaik, pantas juga untuk bahagia sayangg dengan siapapun
+              nantinya. Kamu cantik di mata aku untuk skrng tapi nanti jika
+              keputusan kamu bulat untuk putus, kamu cantik di mata laki yang
+              tepat sayanggg!
+            </p>
+            <p>
+              Semoga kita bisa terus bersama, berbagi tawa, dan menciptakan
+              lebih banyak kenangan indah selama bareng-bareng yaa sayangg.
+              Semoga kedepannya kamu bisa jadi orang berguna dan baik untuk
+              sekeliling kamu yaa, jangan pernah bosen untuk melakukan kebaikan
+              ke siapapun karena one day kebaikan yang kamu lakukan akan
+              berbalik baik koo sayanggg percayalah itu. Semoga kamu bijak dalam
+              ambil keputusan untuk hubungan kita dan keputusan apapun
+              kedepannya karena aku yakin kamu bisa dan uda dewasa tau mana yang
+              baik dan benar.
+            </p>
+          </div>
+          <div class="flex justify-center">
+            <button
+              id="heartBtn"
+              class="heart-btn bg-red-500 text-white px-6 py-2 rounded-full hover:bg-red-600 flex items-center"
+            >
+              <i class="fas fa-heart mr-2"></i>
+              <span id="heartText">Kirim Cinta</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Memories Section -->
+    <section id="memories" class="py-16 px-4 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <h2
+          class="title-font text-3xl md:text-4xl text-center text-rose-600 mb-12"
+        >
+          Kenangan Kita
+        </h2>
+
+        <div
+          class="relative h-96 md:h-[500px] rounded-xl overflow-hidden shadow-xl"
+        >
+          <!-- Memory Photos -->
+          <div
+            class="memory active absolute inset-0 w-full h-full transition-opacity duration-500"
+          >
+            <img
+              src="img/gambar 1.jpg"
+              alt=""
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            class="memory absolute inset-0 w-full h-full transition-opacity duration-500"
+          >
+            <img
+              src="img/gambar 2.jpg"
+              alt=""
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            class="memory absolute inset-0 w-full h-full transition-opacity duration-500"
+          >
+            <img
+              src="img/gambar 3.jpg"
+              alt=""
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            class="memory absolute inset-0 w-full h-full transition-opacity duration-500"
+          >
+            <img
+              src="img/gambar 4.jpg"
+              alt=""
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Navigation Arrows -->
+          <button
+            id="prevMemory"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white/90 text-gray-800 rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button
+            id="nextMemory"
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/70 hover:bg-white/90 text-gray-800 rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <!-- Dots Indicator -->
+          <div
+            class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"
+          >
+            <button
+              class="memory-dot w-3 h-3 rounded-full bg-white/80 hover:bg-white active-dot"
+              data-index="0"
+            ></button>
+            <button
+              class="memory-dot w-3 h-3 rounded-full bg-white/80 hover:bg-white"
+              data-index="1"
+            ></button>
+            <button
+              class="memory-dot w-3 h-3 rounded-full bg-white/80 hover:bg-white"
+              data-index="2"
+            ></button>
+            <button
+              class="memory-dot w-3 h-3 rounded-full bg-white/80 hover:bg-white"
+              data-index="3"
+            ></button>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Setiap momen bersama kamu adalah suatu kebahagiaan yang tak
+            ternilai. Aku bersyukur bisa menciptakan momen indah bersama kamu
+            sayang.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wishes Section -->
+    <section class="py-16 px-4 bg-gradient-to-b from-pink-50 to-rose-50">
+      <div class="max-w-4xl mx-auto">
+        <h2
+          class="title-font text-3xl md:text-4xl text-center text-rose-600 mb-12"
+        >
+          Doa dan harapan untuk kamu
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition hover:-translate-y-1"
+          >
+            <div class="text-pink-500 text-4xl mb-4">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3 class="title-font text-xl text-pink-700 mb-2">Kesehatan</h3>
+            <p class="text-gray-600">
+              Sayangku, aku disini berdoa agar kamu diberi kesehatan yang
+              sempurna, tubuh yang kuat, dan hati yang bahagia. Aku ingin
+              melihat senyum manismu setiap hari, tanpa lelah, tanpa sakit,
+              hanya kebahagiaan yang mengiringi langkahmu. Karena ketika kamu
+              sehat, dunia terasa lebih indah bagiku. 💖
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition hover:-translate-y-1"
+          >
+            <div class="text-pink-500 text-4xl mb-4">
+              <i class="fas fa-gem"></i>
+            </div>
+            <h3 class="title-font text-xl text-pink-700 mb-2">Keberhasilan</h3>
+            <p class="text-gray-600">
+              Sayangku, aku percaya kamu bisa meraih semua impianmu, satu per
+              satu. Aku tahu kamu kuat, hebat, dan pantas mendapatkan segala hal
+              indah di dunia ini. Di setiap langkahmu, aku akan selalu ada —
+              mendukungmu, menyemangatimu, dan mencintaimu. Semoga keberhasilan
+              selalu berpihak padamu, hari ini dan selamanya. 🌟
+            </p>
+          </div>
+
+          <div
+            class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition hover:-translate-y-1"
+          >
+            <div class="text-pink-500 text-4xl mb-4">
+              <i class="fas fa-laugh-beam"></i>
+            </div>
+            <h3 class="title-font text-xl text-pink-700 mb-2">Kebahagiaan</h3>
+            <p class="text-gray-600">
+              Sayang, semoga setiap harimu dipenuhi tawa yang tulus, pelukan
+              hangat, dan cinta yang tak pernah padam. Aku ingin menjadi alasan
+              senyummu, teman tertawamu, dan tempat ternyamanmu pulang.
+              Bersamamu, setiap detik menjadi momen berharga yang ingin aku
+              simpan selamanya. 💖
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gradient-to-r from-pink-500 to-rose-500 text-white py-8 px-4"
+    >
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="flex justify-center space-x-6 mb-6"></div>
+        <p>
+          Dibuat dengan <i class="fas fa-heart text-red-300"></i> untuk hari
+          spesial kamu
+        </p>
+        <p class="text-sm mt-2 opacity-80">
+          © 2025 Ulang Tahun - Dibuat secara khusus untuk kamu
+        </p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

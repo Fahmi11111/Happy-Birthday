@@ -1,0 +1,61 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fff5f5;
+  color: #4a4a4a;
+  overflow-x: hidden;
+}
+
+.title-font {
+  font-family: "Playfair Display", serif;
+}
+
+.heart-btn {
+  transition: all 0.3s ease;
+}
+
+.heart-btn:hover {
+  transform: scale(1.1);
+}
+
+.memory {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.memory.active {
+  opacity: 1;
+}
+
+.gift-box {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gift-box:hover {
+  transform: scale(1.05);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: #f0f;
+  opacity: 0;
+  z-index: 9999;
+}
